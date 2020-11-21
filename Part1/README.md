@@ -1,28 +1,11 @@
 # **Prototyping tutorial Part 1 - simple examples in Micropython and Pyboard**
 
-I was digging on internet for some examples about testing on ESP8266 in Micropython just for myself education purpose and I didn't find too much useful examples for me. So I decided to fill this gap and I hope this can be  also useful for others who are willing to deal with the topic or teach their students about basics and how to automate testing. Why ESP8266 ? Because it is cost-effective and highly integrated Wi-Fi MCU for IoT / smart things... applications
+Why MicroPython in the firs tutorial?  Frankly because the development in MicroPython is really simple. And we can start our hands on exercise from the browser instead of spending time with installing whole environment on microcontroller and your computer. As we don't need any installation, just open the corresponding web page [(see here)](https://micropython.org/unicorn/) on the official micropython.org website and lets start your first application..
 
-C and C++ are common programming languages used in microcomputers and embedded devices, but they are also relatively high learning barriers for beginners in programming. Using the programming language processor ' MicroPython ' that is highly compatible with Python 3, you can easily program a microcomputer using the Python 3 grammar that is easy for beginners to understand.
-
-MicroPython is a language processing system that allows programming of microcomputers and embedded devices using Python grammar. The code coverage rate showing the percentage of source code tested is 98.4% for the core part, and it corresponds to the instruction set such as x86 , ARM , Xtensa .
-
-
-Thanks to the success of Python as a programming language, today many developers have chosen this language in their projects and more and more people are familiar with and experience this language. So why microcontrollers are still programmed in C?
-
-Well, things seem to be taking another direction. MicroPython has been released, a development software that allows the programming of microcontrollers using exclusively Python as a programming language. In this article we will see in detail MicroPython. We will also talk about PyBoard, a microcontroller board specifically designed to be programmed into Python.
-
-
-MicroPython is an application based entirely on Python 3. This application allows all developers to program microcontrollers using some Python libraries that have been optimized to work on microprocessors normally mounted on microcontrollers.
-
-The development on MicroPython is really simple. It does not require any installation, just open the corresponding web page (see here) on the official micropython.org website. In fact MicroPython is an application that works online, and so instead of installing an application on your computer you can work directly from the browser.
-
-
-In this short article the MicroPython application was shown, a software that allows Python programming for microcontrollers. You have seen in detail the features of this totally opensource project and in particular of the compiler that is able to produce hardware-specific compiled code according to microcontrollers and small size. You also took a quick look at the pyBoard, a microcontroller developed specifically to be programmed into Python. In the next articles some tutorials on programming in Python will be proposed in this development environment.
-
+In this short tutorial I will show you few examples of programming for pyBoard. You will try few features of this microcontroller and learn basic programing in MicroPython. So lets start with our quick HW overview and jump on the first project..
 <br/>
 
 # Things used in this project
-
 
 
 
@@ -170,6 +153,92 @@ while True:
 
 ```
 
+## Step 4: next code will give you example of how to write on LCD values and graphic
+
+In example we will use a virtual I2C LCD(scl pin X9, sda pin X10) and Slider on pin Y4. Make sure you have both I2C LCD and ADC checkboxes marked.
+
+```python
+
+# A fully simulated I2C bus and LCD Display
+# The framebuf class simplifies graphics in MicroPython
+# Use the hardware i2c in example Pong for faster performance
+# Make sure you have the I2C LCD checkbox marked!
+
+from machine import Pin, I2C
+from pyb import ADC
+from time import sleep_ms
+import framebuf
+
+
+class LCD:
+
+    def __init__(self):
+        
+        # setup I2C
+        self._i2c = I2C(scl=Pin('X9'), sda=Pin('X10'))              
+        
+        # setup buffer
+        self._fbuf = framebuf.FrameBuffer(
+            bytearray(64 * 32 // 8), 64, 32, framebuf.MONO_HLSB)
+
+    def clear(self):
+        self._fbuf.fill(0)                  # clear buffer 
+
+    def text(self, msg, x, y):
+        self._fbuf.text(str(msg), x, y)     # write text to position
+
+    def blit(self, buf, x, y):
+        self._fbuf.blit(buf, x, y)          # draw buffer
+
+    def draw(self):
+        self._i2c.writeto(8, self._fbuf)    # draw buffer to LCD via I2C
+
+
+class Logo:
+    def __init__(self, posx=45, posy=15):
+         
+         # setup buffer
+        self.buf = framebuf.FrameBuffer(
+            bytearray(17 * 17 // 8), 17, 17, framebuf.MONO_HLSB)
+        self.x = posx                        
+        self.y = posy
+
+        # draw logo
+        self.buf.fill(0)
+
+        self.buf.hline(2, 3, 11, 1)
+        self.buf.hline(2, 4, 11, 1)
+        self.buf.hline(2, 5, 11, 1)
+
+        self.buf.vline(6, 5, 9, 1)
+        self.buf.vline(7, 5, 9, 1)
+        self.buf.vline(8, 5, 9, 1)
+
+        self.buf.hline(3, 10, 1, 1)
+        self.buf.hline(11, 10, 1, 1)
+        self.buf.hline(14, 10, 1, 1)
+
+
+def main():
+
+    print("Started ..")
+    slider = ADC(Pin('Y4'))         # setup slider
+    lcd = LCD()                     # setup LCD
+    logo = Logo()                   # init Logo
+
+    pos = slider.read()             # get slider position
+
+    lcd.clear()                     # Draw on LCD
+    lcd.blit(logo.buf, logo.x, logo.y)
+    lcd.text(pos, 0, 0)
+    lcd.draw()
+    print(pos)                      # write slider position
+
+
+main()                              # run
+
+```
+
 # Next steps
 
 In second part of this tutorial I will cover complex scenario and related topics
@@ -177,12 +246,8 @@ In second part of this tutorial I will cover complex scenario and related topics
 # Resources
 
 Further reading and useful links:
-- [RealPython](https://realpython.com/pytest-python-testing/)
-- [Guru99](https://www.guru99.com/software-testing.html)
-- [Software Testing Help](https://www.softwaretestinghelp.com/)
+- [Pyboard MicroPython](http://docs.micropython.org/en/latest/pyboard/quickref.html)
 - [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp)
-- [wikipedia Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number)
-- [wikipedia Standard deviation](https://en.wikipedia.org/wiki/Standard_deviation)
 
 
 # Credits
