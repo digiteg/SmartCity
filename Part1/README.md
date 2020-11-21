@@ -94,7 +94,7 @@ while True:
 ```
 
 
-## Step 2: second code Internal USR button and LEDs
+## Step 2: second code try Pin attached virtual LED
 
 In example we will use a Pin and attached virtual LED. Make sure you have the LED checkbox marked! The LED is connected to virtual pin Y12.
 
