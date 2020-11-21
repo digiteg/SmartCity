@@ -157,6 +157,8 @@ while True:
 
 In example we will use a virtual I2C LCD(scl pin X9, sda pin X10) and Slider on pin Y4. Make sure you have both I2C LCD and ADC checkboxes marked.
 
+![LCD and Slider](/img/PYBSliderLCD.png)
+
 ```python
 
 # A fully simulated I2C bus and LCD Display
