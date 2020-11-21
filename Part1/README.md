@@ -42,7 +42,7 @@ Unicorn offers implementation of a virtual microcontroller based on the Unicorn 
 
 ![Pyboard](/img/MicroPython-web-online.jpg)
 
-## **Built in peripherals **
+## **Built in peripherals**
 Web dev environment allows us to use with virtual pyboard various peripherals. 
 ![Pyboard](/img/PYBAll.png)
 
@@ -61,3 +61,58 @@ Web dev environment allows us to use with virtual pyboard various peripherals.
 ![Prototype](/img/prototypefun.gif)
 
 ## **Back to reality .. Start with baby steps**
+Idea is to start always with small building blocks and try to test it and optimize your code. This is the best way how to build your solution iteratively and step by step learn how things work.
+
+Try to copy and paste following code examples into Unicorn REPL
+
+## Step 1: write your first code
+
+In example the try use USR button on the pyboard to flash the all internal 1-4 LEDs in the row.
+
+```python
+# push the USR button on the pyboard to flash the LEDs!
+# try using the reset button on the pyboard to quit this script!
+
+from time import sleep_ms
+from pyb import LED, Switch
+
+last = i =1
+
+print("Demo start ... Press button")
+
+while True:
+    if Switch().value(): # USR button pressed ?
+        LED(i).on()
+        last=i
+        i=i%4 +1 # choose next internal led # 1-4
+        print("Switch pressed...",i)
+    else:
+        LED(last).off()
+    
+    sleep_ms(50) # sleep for while
+```
+
+
+# Next steps
+
+In second part of this tutorial I will cover complex scenario and related topics
+
+# Resources
+
+Further reading and useful links:
+- [RealPython](https://realpython.com/pytest-python-testing/)
+- [Guru99](https://www.guru99.com/software-testing.html)
+- [Software Testing Help](https://www.softwaretestinghelp.com/)
+- [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp)
+- [wikipedia Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number)
+- [wikipedia Standard deviation](https://en.wikipedia.org/wiki/Standard_deviation)
+
+
+# Credits
+
+
+# License
+Unless otherwise noted, the contents of this document are licensed under a license
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Creative Commons](/img/cc.svg) ![by](/img/by.svg) ![nc-eu](/img/nc-eu.svg) ![sa](/img/sa.svg)
