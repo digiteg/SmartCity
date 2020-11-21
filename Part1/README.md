@@ -17,6 +17,8 @@ MicroPython is an application based entirely on Python 3. This application allow
 The development on MicroPython is really simple. It does not require any installation, just open the corresponding web page (see here) on the official micropython.org website. In fact MicroPython is an application that works online, and so instead of installing an application on your computer you can work directly from the browser.
 
 
+In this short article the MicroPython application was shown, a software that allows Python programming for microcontrollers. You have seen in detail the features of this totally opensource project and in particular of the compiler that is able to produce hardware-specific compiled code according to microcontrollers and small size. You also took a quick look at the pyBoard, a microcontroller developed specifically to be programmed into Python. In the next articles some tutorials on programming in Python will be proposed in this development environment.
+
 <br/>
 
 # Things used in this project
@@ -121,6 +123,47 @@ while True:
     sleep_ms(50)            # sleep for while
     
 print("Pin LED end")
+
+```
+
+
+## Step 3: next code will give you example of how to use Servo and Slider together
+
+In example we will use a Pin and attached virtual servo and Slider on pin Y4. Make sure you have both Servo and ADC checkboxes marked.
+
+```python
+
+# In this example we are going use Servo and Slider by reading using the ADC
+# Make sure you have the Servo checkbox marked!
+# Make sure you have the ADC checkbox marked!
+# use the reset button to stop example
+
+from machine import Pin
+from pyb import ADC, Servo
+from time import sleep_ms
+
+# The slider is connected to pin Y4, try adjusting it
+slider = ADC(Pin('Y4'))
+
+# The pyboard has four simple servo connections
+servo = Servo(1)
+
+# calculate the basic step
+STEP = 255 / 180
+last =-1
+
+print("Servo and Slider demo started..")
+
+while True:
+    pos=slider.read()
+    
+    if (pos != last):
+        angle = int((pos / STEP) - 90)         # get the angle
+        print("Slider position: ", pos, " Servo angle: ", angle)
+        servo.angle(angle, 100)                 # set servo angle
+        last =pos
+    
+    sleep_ms(10)
 
 ```
 
