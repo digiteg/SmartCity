@@ -1,4 +1,4 @@
-# **Part 1 - Pyboard simple examples in Micropython**
+# **Prototyping Part 1 - simple examples in Micropython and Pyboard**
 
 I was digging on internet for some examples about testing on ESP8266 in Micropython just for myself education purpose and I didn't find too much useful examples for me. So I decided to fill this gap and I hope this can be  also useful for others who are willing to deal with the topic or teach their students about basics and how to automate testing. Why ESP8266 ? Because it is cost-effective and highly integrated Wi-Fi MCU for IoT / smart things... applications
 
@@ -31,4 +31,7 @@ The development on MicroPython is really simple. It does not require any install
 
 <br/>
 
-# Long story short
+# Hurray let's start !
+![Prototype](/img/prototypefun.gif)
+
+## **Back to reality ..**
