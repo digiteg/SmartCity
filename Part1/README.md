@@ -131,6 +131,9 @@ print("Pin LED end")
 
 In example we will use a Pin and attached virtual servo and Slider on pin Y4. Make sure you have both Servo and ADC checkboxes marked.
 
+![Servo and Slider](/img/PYBSliderServo.png)
+
+
 ```python
 
 # In this example we are going use Servo and Slider by reading using the ADC
