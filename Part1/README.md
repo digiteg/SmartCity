@@ -1,4 +1,4 @@
-# **Prototyping Part 1 - simple examples in Micropython and Pyboard**
+# **Prototyping tutorial Part 1 - simple examples in Micropython and Pyboard**
 
 I was digging on internet for some examples about testing on ESP8266 in Micropython just for myself education purpose and I didn't find too much useful examples for me. So I decided to fill this gap and I hope this can be  also useful for others who are willing to deal with the topic or teach their students about basics and how to automate testing. Why ESP8266 ? Because it is cost-effective and highly integrated Wi-Fi MCU for IoT / smart things... applications
 
@@ -23,15 +23,26 @@ The development on MicroPython is really simple. It does not require any install
  ![Pyboard](/img/pybv10-pinout.jpg)
 
 ### **Hardware components**
-- PYBv1.0. You can also view pinouts on picture above.
+- PYBv1.0. You can also view pinouts on picture about and below:
+ ![Pyboard front and rear](/img/MicroPython-Pyboard-front-and-rear.jpg)
+
+
 
 ### **Software apps and online services**
 - [MicroPython unicorn online editor](https://micropython.org/unicorn/)
+<br/>
+
+# Intro to dev environment used in this tutorial
+
+Unicorn offers implementation of a virtual microcontroller based on the Unicorn emulator. It also contains a port of MicroPython to that virtual microcontroller, and allows the virtual microcontroller to run in the browser. This will give us dev environment with full MicroPython port running simulated-bare-metal in a web browser.
+
 ![Pyboard](/img/MicroPython-web-online.jpg)
 
 <br/>
 
+
+
 # Hurray let's start !
 ![Prototype](/img/prototypefun.gif)
 
-## **Back to reality ..**
+## **Back to reality .. Start with baby steps**
