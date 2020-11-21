@@ -61,11 +61,12 @@ Web dev environment allows us to use with virtual pyboard various peripherals.
 ![Prototype](/img/prototypefun.gif)
 
 ## **Back to reality .. Start with baby steps**
-Idea is to start always with small building blocks and try to test it and optimize your code. This is the best way how to build your solution iteratively and step by step learn how things work.
+Idea is to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step learn how things work.
 
 Try to copy and paste following code examples into Unicorn REPL
 
-## Step 1: write your first code
+
+## Step 1: your first code Internal USR button and LEDs
 
 In example the try use USR button on the pyboard to flash the all internal 1-4 LEDs in the row.
 
@@ -81,17 +82,47 @@ last = i =1
 print("Demo start ... Press button")
 
 while True:
-    if Switch().value(): # USR button pressed ?
+    if Switch().value():        # USR button pressed ?
         LED(i).on()
         last=i
-        i=i%4 +1 # choose next internal led # 1-4
+        i=i%4 +1                # choose next internal led # 1-4
         print("Switch pressed...",i)
     else:
         LED(last).off()
     
-    sleep_ms(50) # sleep for while
+    sleep_ms(50)                # sleep for while
 ```
 
+
+## Step 2: your first code Internal USR button and LEDs
+
+In example we will use a Pin and attached virtual LED. Make sure you have the LED checkbox marked! The LED is connected to virtual pin Y12.
+
+```python
+# to flash the pinned red LED
+# push the USR button on the pyboard to end this script
+# try also using the reset button on the pyboard to find difference
+
+from time import sleep_ms
+from machine import Pin
+from pyb import Switch
+
+# The LED is connected to our virtual pin Y12
+y12 = Pin('Y12')
+
+print("Pin LED blink :) Start ! ")
+
+while True:
+    if Switch().value():    # USR button pressed ?
+        y12(0)
+        break               # break the loop
+
+    y12(0 if y12() else 1)  # on / off of red LED
+    sleep_ms(50)            # sleep for while
+    
+print("Pin LED end")
+
+```
 
 # Next steps
 

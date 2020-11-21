@@ -9,13 +9,13 @@ last = i =1
 print("Demo start ... Press button")
 
 while True:
-    if Switch().value(): # USR button pressed ?
+    if Switch().value():        # USR button pressed ?
         LED(i).on()
         last=i
-        i=i%4 +1 # choose next internal led # 1-4
+        i=i%4 +1                # choose next internal led # 1-4
         print("Switch pressed...",i)
     else:
         LED(last).off()
     
-    sleep_ms(50) # sleep for while
+    sleep_ms(50)                # sleep for while
 
