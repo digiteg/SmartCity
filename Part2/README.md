@@ -14,16 +14,16 @@ sense hat
 - [Trinket online editor](https://trinket.io/)
 <br/>
 
-# Intro to Unicorn dev environment used in this tutorial
+# What is a Sense HAT?
 
-...
 
-What is a Sense HAT?
 The Sense HAT is an add-on board for the Raspberry Pi, made especially for the Astro Pi competition. The board allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix.
 
 ![SenseHAT parts](/img/sensehat-parts.png)
 
-## **Trinket’s built ins**
+## **Trinket’s online dev environment **
+Trinket lets you run and write code in any browser, on any device. Trinkets work instantly, with no need to log in, download plugins, or install software. Easily share or embed the code with your changes when you're done.
+
 ![Trinket emulator](/img/Emulator.png)
 The new emulator builds on Trinket’s existing Python-in-browser platform, and provides the following features:
 
