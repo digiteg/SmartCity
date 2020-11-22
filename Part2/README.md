@@ -6,18 +6,12 @@ sense hat
 
 # Things used in this project
 
-
-
- ![Pyboard](/img/pybv10-pinout.jpg)
-
 ### **Hardware components**
-- PYBv1.0. You can also view pinouts on the pictures above and below:
- ![Pyboard front and rear](/img/MicroPython-Pyboard-front-and-rear.jpg)
-
-
-
+- SenseHAT
+- Raspberry Pi 3 or 4
+ 
 ### **Software apps and online services**
-- [MicroPython unicorn online editor](https://micropython.org/unicorn/)
+- [Trinket online editor](https://trinket.io/)
 <br/>
 
 # Intro to Unicorn dev environment used in this tutorial
