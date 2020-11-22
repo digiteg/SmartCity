@@ -24,7 +24,7 @@ The Sense HAT is an add-on board for the Raspberry Pi, made especially for the A
 ![SenseHAT parts](/img/sensehat-parts.png)
 
 ## **Trinket’s built ins**
-
+![Trinket emulator](/img/Emulator.png)
 The new emulator builds on Trinket’s existing Python-in-browser platform, and provides the following features:
 
 - Virtual Sense HAT with environmental controls and joystick input
@@ -38,7 +38,7 @@ The new emulator builds on Trinket’s existing Python-in-browser platform, and 
 - Project download as zip (for moving to Raspberry Pi)
 - All major browsers supported
 
-![Trinket emulator](/img/Emulator.png)
+
 
 The Sense HAT has temperature, pressure and humidity sensors, and can change its behaviour according to the values they report. The Sense HAT emulator has sliders you can move to change these values, so you can test how your code responds to environmental variables.
 
