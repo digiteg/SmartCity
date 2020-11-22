@@ -60,16 +60,17 @@ Try to copy and paste following code examples into Unicorn REPL
 
 ## Step 1: your first code Internal USR button and LEDs
 
-In example 
+In example we will learn all how to use sensors and buid   
 
 ```python
 from sense_hat import SenseHat, ACTION_PRESSED, ACTION_HELD, ACTION_RELEASED
 from time import sleep
 
-sense = SenseHat()
-sense.clear()
+sense = SenseHat()              # initialize Sense HAT
+sense.clear()                   # clear display
 
 
+# joystick event handlers
 def pushed_up(event):
     print(event.direction, event.action)
 
@@ -88,9 +89,8 @@ def pushed_right(event):
 
 def refresh():
     sense.clear()
-    sense.set_pixel(x, y, 255, 255, 255)
-
-
+ 
+# attach joystick event handlers
 sense.stick.direction_up = pushed_up
 sense.stick.direction_down = pushed_down
 sense.stick.direction_left = pushed_left
@@ -111,6 +111,7 @@ while True:
 
     print("Temperature: {0}C Pressure: {1}hPa Humidity: {2}%".format(t, p, h))
 
+    # Read orientation
     o = sense.get_orientation()
     # print(o)
 
@@ -120,6 +121,7 @@ while True:
 
     print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
 
+    # Read acceleration
     acceleration = sense.get_accelerometer_raw()
     # print(acceleration)
 
@@ -131,8 +133,11 @@ while True:
 
     # Pause before the next arrow
     sleep(0.5)
+
+
 ```
 
+## **Back to reality .. Start with baby steps**
 
 ## Step 2: second code try Pin attached virtual LED
 
