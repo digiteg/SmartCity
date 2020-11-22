@@ -21,7 +21,7 @@ The Sense HAT is an add-on board for the Raspberry Pi, made especially for the A
 
 ![SenseHAT parts](/img/sensehat-parts.png)
 
-## **Trinket’s online dev environment **
+## **Trinket’s online dev environment**
 Trinket lets you run and write code in any browser, on any device. Trinkets work instantly, with no need to log in, download plugins, or install software. Easily share or embed the code with your changes when you're done.
 
 ![Trinket emulator](/img/Emulator.png)
