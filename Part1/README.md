@@ -207,18 +207,11 @@ class Logo:
 
         # draw logo
         self.buf.fill(0)
-
-        self.buf.hline(2, 3, 11, 1)
-        self.buf.hline(2, 4, 11, 1)
-        self.buf.hline(2, 5, 11, 1)
-
-        self.buf.vline(6, 5, 9, 1)
-        self.buf.vline(7, 5, 9, 1)
-        self.buf.vline(8, 5, 9, 1)
-
-        self.buf.hline(3, 10, 1, 1)
-        self.buf.hline(11, 10, 1, 1)
-        self.buf.hline(14, 10, 1, 1)
+        self.buf.rect(2, 3, 11, 3, 1)
+        self.buf.rect(6, 5, 3, 9, 1)
+        self.buf.pixel(3, 10, 1)
+        self.buf.pixel(11, 10, 1)
+        self.buf.pixel(14, 10, 1)
 
 
 def main():
