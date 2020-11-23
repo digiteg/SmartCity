@@ -1,8 +1,10 @@
 # **Prototyping tutorial Part 2 - more complex examples with Sense HAT and Python**
 
-First part of this tutorial was covering intro and testing examples if you are interested please read more on Part 1 link
+First part of this tutorial was covering intro to prototyping examples with MicroPython in virtual environment if you are interested please read more on Part 1 [link]()
 
-Some summary from part 1 of this tutorial is about what could be considered and can make sense in your case if you develop IoT application with ESP8266 and Micropython
+Summary from part 1 of this tutorial is about Idea to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step you will explore and learn how things work.
+
+
 
 <br/>
 
@@ -14,6 +16,7 @@ Some summary from part 1 of this tutorial is about what could be considered and 
  
 ### **Software apps and online services**
 - [Trinket online editor](https://trinket.io/)
+- Open the Weather Logger Starter Trinket: [jumpto.cc/weather-go.](http://jumpto.cc/weather-go)
 <br/>
 
 # What is a Sense HAT?
@@ -66,7 +69,8 @@ You can detect when the Sense HAT’s joystick is pressed, held, and released in
 
 ## main.py
 
-In example we will learn all how to use Sense HAT sensors and build in joystick
+In example we will learn all how to use Sense HAT sensors and build in joystick.
+Try to copy and paste following code examples into Trinket main.py
 
 ```python
 from sense_hat import SenseHat, ACTION_PRESSED, ACTION_HELD, ACTION_RELEASED
@@ -147,6 +151,8 @@ while True:
 
 
 In this project you will collect data from the Sense HAT’s sensors and log it to a file. Then you will use the PyGal module to display that data as a line graph.
+- Open the Weather Logger Starter Trinket: [jumpto.cc/weather-go.](http://jumpto.cc/weather-go)
+
 ![Chart](/img/sensehatgraph.png)
 
 ## collect.py
