@@ -137,7 +137,9 @@ while True:
 
 ```
 
-## Example 2: **Back to reality .. Start with baby steps**
+## Example 2: **Creating simple chart from Sense HAT data**
+![Chart](/img/sensehatgraph.png)
+
 
 ## collect.py
 
@@ -227,7 +229,7 @@ This is end of initial tutorial about prototyping in virtual environments. I rec
 # Resources
 
 Further reading and useful links:
-- [Pyboard MicroPython](http://docs.micropython.org/en/latest/pyboard/quickref.html)
+- [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
 - [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp)
 
 
