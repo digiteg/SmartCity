@@ -247,6 +247,8 @@ This is end of initial tutorial about prototyping in virtual environments. I rec
 
 Further reading and useful links:
 - [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
+- [Sense Hat API](https://pythonhosted.org/sense-hat/api/)
+- [Pygal Chart types](http://www.pygal.org/en/stable/documentation/types/index.html)
 - [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp)
 
 
