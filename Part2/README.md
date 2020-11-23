@@ -52,15 +52,15 @@ The Sense HAT has temperature, pressure and humidity sensors, and can change its
 # Hurray let's start !
 ![Prototype](/img/prototypefun.gif)
 
-## **Back to reality .. Start with baby steps**
+## Example 1: **Back to reality .. Start with baby steps**
 Idea is to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step learn how things work.
 
 Try to copy and paste following code examples into Unicorn REPL
 
 
-## Step 1: your first code Internal USR button and LEDs
+## main.py
 
-In example we will learn all how to use sensors and buid   
+In example we will learn all how to use Sense HAT sensors and build in joystick
 
 ```python
 from sense_hat import SenseHat, ACTION_PRESSED, ACTION_HELD, ACTION_RELEASED
@@ -137,32 +137,92 @@ while True:
 
 ```
 
-## **Back to reality .. Start with baby steps**
+## Example 2: **Back to reality .. Start with baby steps**
 
-## Step 2: second code try Pin attached virtual LED
+## collect.py
 
-In example we will use 
+In following code we will collect and store Sense HAT sensor's data
 
 ```python
+from sense_hat import SenseHat
+from time import sleep
+
+sense = SenseHat()                  # initialize Sense HAT
+
+while True:
+    sleep(5)                            # sleep for while
+    myfile = open("weather.txt", 'a')   # open file for append
+
+    # read sensors data
+    t = sense.get_temperature()
+    p = sense.get_pressure()
+    h = sense.get_humidity()
+
+    # write data into file
+    myfile.write("{0} {1} {2}\n".format(t, p, h))
+
+    myfile.close                    # close file
 
 ```
 
-## Step 3: next code 
+## display.py
+In following code we draw chart from collected data 
 
 ```python
+import pygal
+
+# series of sensors data 
+temp = []
+press = []
+humm = []
+
+file = open("weather.txt", 'r')         # open file for read
+for line in file.read().splitlines():   # read each line
+    if line:
+        val = line.split()              # get values
+        print(val)                      # debug print
+
+        # append sensors values
+        temp.append(float(val[0]))
+        press.append(float(val[1]))
+        humm.append(float(val[2]))
+
+
+file.close()                            # close file
+
+# draw line chart
+weather = pygal.Line()
+weather.title = "Weather"
+
+weather.add("temp", temp)               # temperature
+
+# weather.add("press",press)            # pressure
+# weather.add("humm",humm)              # humidity
+
+weather.x_labels = range(1, len(temp)+1)    # add x axis labels
+# weather.x_labels=range(1,len(press)+1)
+# weather.x_labels=range(1,len(humm)+1)
+weather.render()                        # draw chart
 
 ```
 
-## Step 4: next code will 
-
+## weather.txt
+Sample data for your experiments
 ```python
 
+19.843592419453334 1012.9734563850519 44.34705568195707
+19.843592419453334 1112.9734563850519 50.34705568195707
+23.843592419453334 1212.9734563850519 64.34705568195707
+45.843592419453334 1312.9734563850519 74.34705568195707
+65.843592419453334 1412.9734563850519 84.34705568195707
+75.843592419453334 1512.9734563850519 94.34705568195707
+100.843592419453334 1612.9734563850519 144.34705568195707
 
 ```
 
 # Next steps
 
-In second part of this tutorial I will cover complex scenario and related topics
+This is end of initial tutorial about prototyping in virtual environments. I recommend you to check also my other articles especially I recommend intro to testing as it is connected to topic of this tutorials.
 
 # Resources
 
