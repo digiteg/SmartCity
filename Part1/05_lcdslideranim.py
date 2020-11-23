@@ -12,25 +12,30 @@ import framebuf
 class LCD:
 
     def __init__(self):
+        # setup I2C
         self._i2c = I2C(scl=Pin('X9'), sda=Pin('X10'))
+
+        # setup buffer
         self._fbuf = framebuf.FrameBuffer(
             bytearray(64 * 32 // 8), 64, 32, framebuf.MONO_HLSB)
 
     def clear(self):
-        self._fbuf.fill(0)
+        self._fbuf.fill(0)                  # clear buffer
 
     def text(self, msg, x, y):
-        self._fbuf.text(str(msg), x, y)
+        self._fbuf.text(str(msg), x, y)     # write text to position
 
     def blit(self, buf, x, y):
-        self._fbuf.blit(buf, x, y)
+        self._fbuf.blit(buf, x, y)          # draw buffer
 
     def draw(self):
-        self._i2c.writeto(8, self._fbuf)
+        self._i2c.writeto(8, self._fbuf)    # draw buffer to LCD via I2C
 
 
 class Logo:
     def __init__(self, posx=23, posy=8):
+
+        # setup buffer
         self.buf = framebuf.FrameBuffer(
             bytearray(17 * 17 // 8), 17, 17, framebuf.MONO_HLSB)
         self.x = posx
@@ -38,6 +43,7 @@ class Logo:
         self.hitx = False
         self.hity = False
 
+        # draw logo
         self.buf.fill(0)
         self.buf.rect(2, 3, 11, 3, 1)
         self.buf.rect(6, 5, 3, 9, 1)
@@ -46,9 +52,12 @@ class Logo:
         self.buf.pixel(14, 10, 1)
 
     def move(self, mx, my):
+        
+        # move logo
         self.x += mx
         self.y += my
 
+        # check if corner of screen was hit
         self.hitx = False
         self.hity = False
 
@@ -72,31 +81,31 @@ class Logo:
 def main():
 
     print("Started ..")
-    slider = ADC(Pin('Y4'))
-    lcd = LCD()
-    logo = Logo()
+    slider = ADC(Pin('Y4'))             # setup slider
+    lcd = LCD()                         # setup LCD
+    logo = Logo()                       # init Logo
 
     last = -1
     direction = 1
 
     while True:
-        pos = slider.read()
-        lcd.clear()
+        pos = slider.read()              # get slider position
+        lcd.clear()                      # clear screen
 
-        lcd.blit(logo.buf, logo.x, logo.y)
-        lcd.text(pos, 0, 0)
+        lcd.blit(logo.buf, logo.x, logo.y)  # show logo
+        lcd.text(pos, 0, 0)             # write slider position
 
         if(pos != last):
             last = pos
-            print(pos)
+            print(pos)                  # print slider position if changed
 
-        if(logo.hitx):
+        if(logo.hitx):                  # change direction if corner was hit
             direction = -direction
 
-        logo.move(direction, 0)
+        logo.move(direction, 0)         # animate logo
 
-        lcd.draw()
-        sleep_ms(5)
+        lcd.draw()                      # Draw on LCD
+        sleep_ms(5)                     # sleep for while
 
 
-main()
+main()                                  # run
