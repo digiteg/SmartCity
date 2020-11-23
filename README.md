@@ -5,9 +5,9 @@ The code coverage rate showing the percentage of source code tested is 98.4% for
 
 
 
-- ### **Part 1** [in this tutorial I will cover simple prototyping with PyBoard and virtual environment Unicorn in MicroPython !(/Part1/README.md)
+- ### **Part 1** [in this tutorial I will cover simple prototyping with PyBoard and virtual environment Unicorn in MicroPython](/Part1/README.md)
 
-- ### **Part 2** [in this tutorial I will show more complex work with Sense HAT and Trinket in Python !(/Part2/README.md) 
+- ### **Part 2** [in this tutorial I will show more complex work with Sense HAT and Trinket in Python](/Part2/README.md) 
 
 
 # Resources
