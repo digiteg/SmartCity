@@ -5,7 +5,7 @@ First part of this tutorial was covering intro to prototyping examples with Micr
 ## Hurray let's start !
 Summary from part 1 of this tutorial is about Idea to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step you will explore and learn how things work.
 
-![Prototype](/img/prototypefun.gif)
+![Prototype](/img/prototypefun2.gif)
 
 
 <br/>
