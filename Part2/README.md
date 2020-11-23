@@ -144,10 +144,10 @@ while True:
 ```
 
 ## Example 2: **Weather Logger** creating simple chart from Sense HAT data
-![Chart](/img/sensehatgraph.png)
+
 
 In this project you will collect data from the Sense HAT’s sensors and log it to a file. Then you will use the PyGal module to display that data as a line graph.
-
+![Chart](/img/sensehatgraph.png)
 
 ## collect.py
 
