@@ -1,4 +1,4 @@
-# **Prototyping and IoT - Smart city**
+# **Virtual prototyping for IoT - Smart city**
 C and C++ are common programming languages used in microcomputers and IoT embedded devices, but they are also relatively high learning barriers for beginners in programming. Using the programming language processor ' MicroPython ' that is highly compatible with Python 3, you can easily program a microcomputer using the Python 3 grammar that is easy for beginners to understand.
 
 The code coverage rate showing the percentage of source code tested is 98.4% for the core part, and it corresponds to the instruction set such as x86 , ARM , Xtensa .
