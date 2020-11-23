@@ -243,7 +243,7 @@ main()                              # run
 
 # Next steps
 
-In second part of this tutorial I will cover complex scenario and related topics
+[In second part of this tutorial I will cover complex scenario and related topics](/Part2/README.md)
 
 # Resources
 

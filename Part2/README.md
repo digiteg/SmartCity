@@ -1,6 +1,6 @@
 # **Prototyping tutorial Part 2 - more complex examples with Sense HAT and Python**
 
-First part of this tutorial was covering intro to prototyping examples with MicroPython in virtual environment if you are interested please read more on Part 1 [link]()
+First part of this tutorial was covering intro to prototyping examples with MicroPython in virtual environment if you are interested please read more on Part 1 [link](/Part1/README.md)
 
 Summary from part 1 of this tutorial is about Idea to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step you will explore and learn how things work.
 
