@@ -13,12 +13,20 @@ The code coverage rate showing the percentage of source code tested is 98.4% for
 # Resources
 
 Further reading and useful links:
+- [Pyboard MicroPython](http://docs.micropython.org/en/latest/pyboard/quickref.html)
+- [Getting started with the Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
+- [Sense Hat API](https://pythonhosted.org/sense-hat/api/)
+- [Pygal Chart types](http://www.pygal.org/en/stable/documentation/types/index.html)
 - [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp)
 
+Software apps and online services:
+- [MicroPython unicorn online editor](https://micropython.org/unicorn/)
+- [Trinket online editor](https://trinket.io/)
+- Open the Weather Logger Starter Trinket: [jumpto.cc/weather-go.](http://jumpto.cc/weather-go)
 
 # Don't forget
 
-![No Tests](/img/prototypefun.gif)
+![No try's](/img/prototypefun.gif)
 
 # License
 Unless otherwise noted, the contents of this document are licensed under a license
