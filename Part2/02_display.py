@@ -19,7 +19,7 @@ for line in file.read().splitlines():   # read each line
 
 file.close()                            # close file
 
-# draw line chart
+# line graph
 weather = pygal.Line()
 weather.title = "Weather"
 
@@ -31,4 +31,4 @@ weather.add("temp", temp)               # temperature
 weather.x_labels = range(1, len(temp)+1)    # add x axis labels
 # weather.x_labels=range(1,len(press)+1)
 # weather.x_labels=range(1,len(humm)+1)
-weather.render()                        # draw chart
+weather.render()                        # draw graph

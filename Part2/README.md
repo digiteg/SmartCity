@@ -52,11 +52,17 @@ The Sense HAT has temperature, pressure and humidity sensors, and can change its
 # Hurray let's start !
 ![Prototype](/img/prototypefun.gif)
 
-## Example 1: **Back to reality .. Start with baby steps**
-Idea is to start always with small building blocks and try to test them and optimize your code. This is the best way how to build your solution iteratively and step by step learn how things work.
+## Example 1: **Sensing the environment**
 
-Try to copy and paste following code examples into Unicorn REPL
+The Sense HAT has a set of environmental sensors for detecting the surrounding conditions; it can measure pressure, temperature, and humidity.
 
+The Sense HAT has also an IMU (Inertial Measurement Unit) chip which includes a set of sensors that detect movement:
+
+- A gyroscope (for detecting which way up the board is)
+- An accelerometer (for detecting movement)
+- A magnetometer (for detecting magnetic fields)
+
+You can detect when the Sense HAT’s joystick is pressed, held, and released in five different directions: up, down, left, right, and middle.
 
 ## main.py
 
@@ -137,13 +143,16 @@ while True:
 
 ```
 
-## Example 2: **Creating simple chart from Sense HAT data**
+## Example 2: **Weather Logger** creating simple chart from Sense HAT data
 ![Chart](/img/sensehatgraph.png)
+
+In this project you will collect data from the Sense HAT’s sensors and log it to a file. Then you will use the PyGal module to display that data as a line graph.
 
 
 ## collect.py
 
-In following code we will collect and store Sense HAT sensor's data
+In following code we will collect and store Sense HAT sensor's data.
+First let’s log the temperature to a file every 5 seconds. You can use the emulator to change the temperature.
 
 ```python
 from sense_hat import SenseHat
@@ -168,7 +177,8 @@ while True:
 ```
 
 ## display.py
-In following code we draw chart from collected data 
+Now you’ve collected some temperature data let’s show it on a line graph.
+In following code we draw graph from collected data. 
 
 ```python
 import pygal
@@ -192,7 +202,7 @@ for line in file.read().splitlines():   # read each line
 
 file.close()                            # close file
 
-# draw line chart
+#  line graph
 weather = pygal.Line()
 weather.title = "Weather"
 
@@ -204,7 +214,7 @@ weather.add("temp", temp)               # temperature
 weather.x_labels = range(1, len(temp)+1)    # add x axis labels
 # weather.x_labels=range(1,len(press)+1)
 # weather.x_labels=range(1,len(humm)+1)
-weather.render()                        # draw chart
+weather.render()                        # draw graph
 
 ```
 
